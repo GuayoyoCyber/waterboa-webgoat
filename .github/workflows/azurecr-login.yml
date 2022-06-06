@@ -1,8 +1,8 @@
 docker login -u $ACR_GUAYOYO_USER -p $ACR_GUAYOYO_TOKEN $ACR_GUAYOYO_URL
 
-//Push image: docker push ghcr.io/OWNER/IMAGE_NAME:latest
+#Push image: docker push ghcr.io/OWNER/IMAGE_NAME:latest
 
-//Pull image:
-//1 copy SHA Value after Digest: docker inspect ghcr.io/OWNER/IMAGE_NAME
-//2 Pull with SHA Value:  docker pull ghcr.io/OWNER/IMAGE_NAME@sha256:SHA
-//Or pull by name: docker pull ghcr.io/OWNER/IMAGE_NAME
+#Pull image:
+#1 copy SHA Value after Digest: docker inspect ghcr.io/OWNER/IMAGE_NAME
+#2 Pull with SHA Value:  docker pull ghcr.io/OWNER/IMAGE_NAME@sha256:SHA
+#Or pull by name: docker pull ghcr.io/OWNER/IMAGE_NAME
