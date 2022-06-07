@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.ACR_GUAYOYO_TOKEN }}
       -
         name: Pull image from docker
-        run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}/wb-sca-dependencycheck-java 
+        run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}//wb-sca-dependencycheck-java 
         #docker run wb-sca-dependencycheck-java
 
 #docker login -u $ACR_GUAYOYO_USER -p $ACR_GUAYOYO_TOKEN $ACR_GUAYOYO_URL
