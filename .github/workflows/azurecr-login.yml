@@ -1,4 +1,4 @@
-name: ci
+name: login and pull image ACR
 
 on:
   push:
@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
-        name: Login to ACR
+        name: Login to ACR and Pull image
         uses: docker/login-action@v2
         with:
           registry: ${{ secrets.ACR_GUAYOYO_URL }}
           username: ${{ secrets.ACR_GUAYOYO_USER }}
           password: ${{ secrets.ACR_GUAYOYO_TOKEN }}
+          run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}/${{ secrets.ACR_GUAYOYO_USER }}/wb-cca-clair:latest
 
 #docker login -u $ACR_GUAYOYO_USER -p $ACR_GUAYOYO_TOKEN $ACR_GUAYOYO_URL
 
