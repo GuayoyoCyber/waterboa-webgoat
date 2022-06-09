@@ -21,7 +21,7 @@ jobs:
         #docker run wb-sca-dependencycheck-java
       -
         name: Run image from docker
-        run: docker run --rm -e sendgrid_api_key= '${{ secrets.SENDGRID_API_KEY }}' -e from_addr= '${{ secrets.WB_MAIL_FROM }}' -e to_addr= '${{ secrets.WB_MAIL_TO }}' -e mail_sjt= 'Software Composition Analysis' -e mail_body='SCA Results' -e file_path='/report/dependency-check-report.html' -e atch_type='text/html' -e atch_name='webgoat-dependency-check-report.html' -e atch_id='001' -e atch_disp='' -v '${{ github.workspace }}:/src' '${{ secrets.ACR_GUAYOYO_URL }}'/wb-sca-dependencycheck-java:latest
+        run: docker run --rm -e sendgrid_api_key= '${{ secrets.SENDGRID_API_KEY }}' -e from_addr= '${{ secrets.WB_MAIL_FROM }}' -e to_addr= '${{ secrets.WB_MAIL_TO }}' -e mail_sjt= 'Software Composition Analysis' -e mail_body='SCA Results' -e file_path='/report/dependency-check-report.html' -e atch_type='text/html' -e atch_name='webgoat-dependency-check-report.html' -e atch_id='001' -e atch_disp='' -v '${{ github.workspace }}:/src' '${{ secrets.ACR_GUAYOYO_URL }}/wb-sca-dependencycheck-java:latest'
 
     
     
