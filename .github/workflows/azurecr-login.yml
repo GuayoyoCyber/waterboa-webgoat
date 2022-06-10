@@ -15,14 +15,22 @@ jobs:
           registry: ${{ secrets.ACR_GUAYOYO_URL }}
           username: ${{ secrets.ACR_GUAYOYO_USER }}
           password: ${{ secrets.ACR_GUAYOYO_TOKEN }}
+          
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+          architecture: x64
+      
       -
         name: Pull image from docker
         run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}/wb-sca-dependencycheck-java 
-        #docker run wb-sca-dependencycheck-java
+      
       -
         name: Compile Project
-        run:  cd ${{github.workspace}} &&/
-              mvn clean package -DskipTests
+        run:  mvn clean package -DskipTests
         
       -
         name: Run image from docker
