@@ -1,4 +1,4 @@
-name: login and pull image ACR
+name: WaterBoa Software Composition Analysis
 
 on:
   push:
