@@ -1,5 +1,4 @@
-
-name: login and pull image ACR
+name: Waterboa Scan image
 
 on:
   push:
