@@ -1,5 +1,4 @@
-name: login and pull image ACR
-
+name: Waterboa Scan source code
 on:
   push:
     branches: develop
