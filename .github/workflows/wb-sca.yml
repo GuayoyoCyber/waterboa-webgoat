@@ -2,7 +2,7 @@ name: WaterBoa Software Composition Analysis
 
 on:
   push:
-    branches: develop
+    branches: main
 
 jobs:
   login:
