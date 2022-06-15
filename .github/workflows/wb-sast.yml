@@ -1,7 +1,7 @@
 name: Waterboa Scan source code
 on:
   push:
-    branches: develop
+    branches: main
 
 jobs:
   login:
