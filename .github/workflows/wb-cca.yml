@@ -33,14 +33,10 @@ jobs:
         run:  mvn clean package -DskipTests
         #Compile project, so we can analyze project content and dependencies
           
-      - 
-        name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: user/app:latest
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.ACR_GUAYOYO_URL }}
+      -
+        name: Build and Tag image
+        run: |
+              docker build -f ./Dockerfile -t ${{ secrets.ACR_GUAYOYO_URL }}/spring-petclinic:${{ github.run_number }} .
 
       -
         name: Run image from docker
