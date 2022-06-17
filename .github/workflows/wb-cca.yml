@@ -35,7 +35,7 @@ jobs:
           
       - 
         name: Build image
-        uses: docker/gp-docker-action@1.0.1
+        uses: Docker@2
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }} 
             image-name: wb-webgoat
