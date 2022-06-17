@@ -34,6 +34,14 @@ jobs:
         #Compile project, so we can analyze project content and dependencies
         
       -
+        name: Build Image
+        uses: VaultVulp/gp-docker-action@1.0.1
+        with:
+         github-token: ${{ secrets.ACR_GUAYOYO_URL }}
+         image-name: wb-webgoat
+         dockerfile: dockerfile_server
+        
+      -
         name: Run image from docker
         run: docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Container Composition Analysis' -e MAIL_BODY='Clair Results' -e FILE_PATH='gl-container-scanning-report.json' -e ATCH_TYPE='application/json' -e ATCH_NAME='webgoat-clair-report.json' -e ATCH_ID='004' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-cca-clair:latest        
 
