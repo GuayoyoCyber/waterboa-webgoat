@@ -39,7 +39,6 @@ jobs:
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }} 
             image-name: wb-webgoat
-            folder: src/docker
             dockerfile: ../../dockerfiles/Dockerfile
       -
         name: Run image from docker
