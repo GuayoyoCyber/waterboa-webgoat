@@ -34,9 +34,8 @@ jobs:
         #Compile project, so we can analyze project content and dependencies
           
       -
-        name: Build and Tag image
-        run: |
-              docker build -f ./Dockerfile -t ${{ secrets.ACR_GUAYOYO_URL }}/spring-petclinic:${{ github.run_number }} .
+        name: Build image
+       
 
       -
         name: Run image from docker
