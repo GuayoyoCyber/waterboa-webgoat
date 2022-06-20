@@ -34,13 +34,16 @@ jobs:
         #Compile project, so we can analyze project content and dependencies
           
       -
-        name: Build image
-        uses: docker/build-push-action@v3
+        name: Build Docker Image
+        id: buildAndPushImage
+        uses: risfeng/docker-image-build-push-action@v1.0
         with:
-          github-push-secret: ${{ secrets.ACR_GUAYOYO_URL }}
-          docker-image-name: wb-webgoat
-          docker-image-tag: latest 
-          dockerfile-path: Dockerfile
+          registry_url:  ${{ secrets.ACR_GUAYOYO_URL }}
+          repository_name: $(wb-webgoat)
+          user_name:  ${{ secrets.ACR_GUAYOYO_USER }}
+          password: ${{ secrets.ACR_GUAYOYO_TOKEN }} 
+          image_version: 'v1.0'
+          docker_file: '/Dockerfile'
 
       -
         name: Run image from docker
