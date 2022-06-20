@@ -35,7 +35,7 @@ jobs:
           
       -
         name: Build Docker Image
-        uses: risfeng/docker-image-build-push-action@v2
+        uses: risfeng/docker-image-build-push-action@v1.0
         with:
           registry_url:  ${{ secrets.ACR_GUAYOYO_URL }}
           repository_name: 'WebGoat/WebGoat'
