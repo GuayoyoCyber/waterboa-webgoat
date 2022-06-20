@@ -41,10 +41,8 @@ jobs:
           file: ./Dockerfile
           push: true 
           tags: |
-            webgoat/webgoat:${{ env.WEBGOAT_TAG_VERSION }}
             webgoat/webgoat:latest
-          build-args: |
-            webgoat_version=${{ env.WEBGOAT_MAVEN_VERSION }}
+
 
       -
         name: Run image from docker
