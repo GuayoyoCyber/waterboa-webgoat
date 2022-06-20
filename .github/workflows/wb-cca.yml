@@ -40,9 +40,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true 
-          tags: |
-            webgoat/webgoat:latest
-
+          image-name: 'wb-webgoat'
 
       -
         name: Run image from docker
