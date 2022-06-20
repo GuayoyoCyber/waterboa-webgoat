@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: user/app:latest
+          tags: wb-webgoat:latest
 
       -
         name: Run image from docker
