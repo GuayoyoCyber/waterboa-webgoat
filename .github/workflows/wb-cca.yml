@@ -37,10 +37,12 @@ jobs:
         name: Build image
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:/Dockerfile"
-          push: true
-          tags: user/app:latest
-       
+          github-push-secret: ${{ secrets.ACR_GUAYOYO_URL }}
+          docker-image-name: $(wb-webgoat)
+          docker-image-tag: latest 
+          dockerfile-path: ./src/svc/Dockerfile # optional
+          build-context: ./src/svc # optional
+
       -
         name: Run image from docker
         run: docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Container Composition Analysis' -e MAIL_BODY='Clair Results' -e FILE_PATH='gl-container-scanning-report.json' -e ATCH_TYPE='application/json' -e ATCH_NAME='webgoat-clair-report.json' -e ATCH_ID='004' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-cca-clair:latest        
