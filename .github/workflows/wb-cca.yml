@@ -34,10 +34,11 @@ jobs:
         #Compile project, so we can analyze project content and dependencies
           
       -
+       
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:**/Dockerfile"
+          context: "{{defaultContext}}:mysubdir"
           push: true
           tags: user/app:latest
 
