@@ -32,7 +32,11 @@ jobs:
         name: Compile Project
         run:  mvn clean package -DskipTests
         #Compile project, so we can analyze project content and dependencies
-       
+
+      - name: Update version
+        run: mvn -B versions:set -DnewVersion=v${{github.run_number}} -DgenerateBackupPoms=false
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v1
       -   
        name: Build and push
        id: docker_build
