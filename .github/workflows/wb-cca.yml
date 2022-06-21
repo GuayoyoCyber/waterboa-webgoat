@@ -37,7 +37,7 @@ jobs:
         #Compile project, so we can analyze project content and dependencies
       
       - name: Build image
-        run: docker build . --file Dockerfile --tag wb-webgoat 
+        run: docker build ./ --file ./Dockerfile --tag wb-webgoat:latest
       
       -
         name: Run image from docker
