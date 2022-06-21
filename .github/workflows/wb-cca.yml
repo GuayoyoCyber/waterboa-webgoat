@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag wb-webgoat
+        run: docker build . --file Dockerfile --tag wb-webgoat --chown=webgoat target/webgoat-*.jar /home/webgoat/webgoat.jar
 
       -
         name: Run image from docker
