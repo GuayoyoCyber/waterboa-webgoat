@@ -3,6 +3,9 @@ name: Waterboa Scan Image
 on:
   push:
     branches: develop
+    
+env:
+   image_name: wb-webgoat
 
 jobs:
   login:
