@@ -9,9 +9,12 @@ env:
 
 jobs:
   login:
-    runs-on: ubuntu-latest
-      
+    runs-on: ubuntu-latest  
     steps:
+
+      - name: umount
+        run: |
+          umount /var/run/docker.sock
       -
         name: Login to ACR
         uses: docker/login-action@v2
@@ -36,10 +39,6 @@ jobs:
         name: Compile Project
         run:  mvn clean package -DskipTests
         #Compile project, so we can analyze project content and dependencies
-       
-      - name: umount
-        run: |
-          umount /var/run/docker.sock
       - 
         name: Build image
         run: docker build ./ --file ./Dockerfile --tag wb-webgoat:latest
