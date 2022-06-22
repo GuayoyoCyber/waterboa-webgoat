@@ -2,7 +2,10 @@ name: Waterboa Scan Image
 
 on:
   push:
-    branches: develop
+    branches: 
+      - main
+    tags:
+      - '*'
     
 env:
    image_name: wb-webgoat
