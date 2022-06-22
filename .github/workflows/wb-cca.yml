@@ -10,9 +10,6 @@ env:
 jobs:
   login:
     runs-on: ubuntu-latest
-    container: 
-      image: something
-      options: --init --privileged
       
     steps:
       -
