@@ -2,10 +2,7 @@ name: Waterboa Scan Image
 
 on:
   push:
-    branches: 
-      - main
-    tags:
-      - '*'
+    branches: develop
     
 env:
    image_name: wb-webgoat
@@ -38,6 +35,10 @@ jobs:
         name: Compile Project
         run:  mvn clean package -DskipTests
         #Compile project, so we can analyze project content and dependencies
+        
+      - name: Get the version
+        id: vars
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       
       - name: Build image
         run: docker build ./ --file ./Dockerfile --tag wb-webgoat:latest
