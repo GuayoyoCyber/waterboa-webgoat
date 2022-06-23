@@ -25,9 +25,8 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 17
+          java-version: 1.8
           architecture: x64
-      
       -
         name: Pull image from docker
         run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}/wb-cca-clair
