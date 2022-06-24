@@ -2,7 +2,7 @@ name: Waterboa Scan Image
 
 on:
   push:
-    branches: develop
+    branches: main
     
 env:
    image_name: wb-webgoat
@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 18
+          java-version: 17
           architecture: x64
       -
         name: Pull image from docker
