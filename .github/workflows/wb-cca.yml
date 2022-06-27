@@ -47,10 +47,10 @@ jobs:
       - uses: addnab/docker-run-action@v3
         with:
           image: wb-cca-clair:latest        
-          run:  docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Container Composition Analysis' -e MAIL_BODY='Clair Results' -e FILE_PATH='gl-container-scanning-report.json' -e ATCH_TYPE='application/json' -e ATCH_NAME='webgoat-clair-report.json' -e ATCH_ID='004' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-cca-clair:latest        
+          run:  docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Container Composition Analysis' -e MAIL_BODY='Clair Results' -e FILE_PATH='gl-container-scanning-report.json' -e ATCH_TYPE='application/json' -e ATCH_NAME='webgoat-clair-report.json' -e ATCH_ID='004' -e ATCH_DISP='' ${{ secrets.ACR_GUAYOYO_URL }}     
       
       
-      
+    
         #name: Run image from docker
         #run: docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Container Composition Analysis' -e MAIL_BODY='Clair Results' -e FILE_PATH='gl-container-scanning-report.json' -e ATCH_TYPE='application/json' -e ATCH_NAME='webgoat-clair-report.json' -e ATCH_ID='004' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-cca-clair:latest        
 
