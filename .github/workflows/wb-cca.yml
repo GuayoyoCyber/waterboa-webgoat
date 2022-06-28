@@ -39,10 +39,6 @@ jobs:
         name: Build image
         run: docker build ./ --file ./Dockerfile --tag wb-webgoat:latest
       
-      - uses: docker/build-push-action@v2
-        with:
-         tags: wb-webgoat:latest
-         push: false
       - uses: addnab/docker-run-action@v3
         with:
          image: wb-webgoat:latest
