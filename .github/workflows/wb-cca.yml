@@ -29,8 +29,8 @@ jobs:
           architecture: x64
       -
         name: Pull image from docker
-        run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}/wb-webgoat
-      
+        run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}/wb-cca-clair:latest        
+    
       -
         name: Compile Project
         run:  mvn clean package -DskipTests
