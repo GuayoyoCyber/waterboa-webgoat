@@ -1,8 +1,7 @@
 name: WaterBoa Software Composition Analysis
 
 on:
-  push:
-    branches: main
+  workflow_dispatch
 
 jobs:
   login:
