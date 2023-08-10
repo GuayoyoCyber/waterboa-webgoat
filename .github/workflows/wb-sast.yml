@@ -34,10 +34,4 @@ jobs:
         
       -
         name: Run image from docker
-        run: docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Static Application Security Testing' -e MAIL_BODY='SAST Results' -e FILE_PATH='report.html' -e ATCH_TYPE='text/html' -e ATCH_NAME='webgoat-sast-report.html' -e ATCH_ID='001' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-sast-findsecbugs:latest      
-
-        
-
-        
-        #docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Software Composition Analysis' -e MAIL_BODY='SCA Results' -e FILE_PATH='/report/dependency-check-report.html' -e ATCH_TYPE='text/html' -e ATCH_NAME='webgoat-dependency-check-report.html' -e ATCH_ID='001' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-sca-dependencycheck-java:latest        
-        #docker run --rm -e SENDGRID_API_KEY='$(sendgrid_api_key)' -e FROM_ADDR='$(noreply)' -e TO_ADDR='$(email)' -e MAIL_SJT='Static Application Security Testing' -e MAIL_BODY='SAST Results' -e FILE_PATH='report.html' -e ATCH_TYPE='text/html' -e ATCH_NAME='amazona-sast-report.html' -e ATCH_ID='002' -e ATCH_DISP='' -v '$(Build.SourcesDirectory):/src' guayoyo.azurecr.io/wb-sast-findsecbugs:latest
+        run: docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Static Application Security Testing' -e MAIL_BODY='SAST Results' -e FILE_PATH='report.html' -e ATCH_TYPE='text/html' -e ATCH_NAME='webgoat-sast-report.html' -e ATCH_ID='001' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-sast-findsecbugs:latest
