@@ -1,7 +1,7 @@
 name: Waterboa Static Application Security Testing
+
 on:
-  push:
-    branches: main
+  workflow_dispatch
 
 jobs:
   login:
