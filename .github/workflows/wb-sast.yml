@@ -1,4 +1,4 @@
-name: Waterboa Static Application Security Testing
+name: WaterBoa Static Application Security Testing
 
 on:
   workflow_dispatch
@@ -25,8 +25,8 @@ jobs:
       
       -
         name: Pull image from docker
-        run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}/wb-sast-findsecbugs
-      
+        run: docker pull ${{ secrets.ACR_GUAYOYO_URL }}/wb-findsecbugs-java
+    
       -
         name: Compile Project
         run:  mvn clean package -DskipTests
@@ -34,4 +34,4 @@ jobs:
         
       -
         name: Run image from docker
-        run: docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Static Application Security Testing' -e MAIL_BODY='SAST Results' -e FILE_PATH='report.html' -e ATCH_TYPE='text/html' -e ATCH_NAME='webgoat-sast-report.html' -e ATCH_ID='001' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-sast-findsecbugs:latest
+        run: docker run --rm -e SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}' -e FROM_ADDR='${{ secrets.WB_MAIL_FROM }}' -e TO_ADDR='${{ secrets.WB_MAIL_TO }}' -e MAIL_SJT='Static Application Security Testing' -e MAIL_BODY='SAST Results' -e FILE_PATH='report.html' -e ATCH_TYPE='text/html' -e ATCH_NAME='webgoat-sast-report.html' -e ATCH_ID='001' -e ATCH_DISP='' -v '${{ github.workspace }}:/src' ${{ secrets.ACR_GUAYOYO_URL }}/wb-findsecbugs-java:e2310eef2dbb26f6d1e91a4243fa6be72f392348
